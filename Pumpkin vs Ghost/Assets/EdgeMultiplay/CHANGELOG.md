@@ -1,0 +1,50 @@
+# Changelog
+All notable changes to this EdgeMultiplay Unity Client will be documented in this file.
+
+## [1.3.0] - 2021-11-13
+
+### Fixes & Improvements:
+- Proper error logs for calling EdgeManager functions before OnGameStart() callback.
+
+### New Features:
+- EdgeManager.CreateRoom() now have a new argument minPlayersToStartGame (The minimum players threshold to start a game, new players will be able to join the running game as long as the room members count is below maxPlayersPerRoom threshold.
+- New ClientSettings menu, where you can set your ports and configure your host address.(Located under EdgeMultiplay/ClientSettings)
+- New Server Event rooms-updated, use OnRoomsUpdated() callback to get the latest status of rooms in the lobby.
+
+
+## [1.2.0] - 2021-05-05
+
+### Fixes & Improvements:
+- Fixed App Quiting error on PC/Mac Unity Player.
+- Fixed customizable fallback location for Oculus/Non Phone devices in your GameManager.cs
+```
+EdgeManager.integration.useFallbackLocation = true;
+EdgeManager.integration.setFallbackLocation(longitude, latitude);
+ConnectToEdge(useFallBackLocation:true);
+```
+- Use SendGamePlayEvent() and SendGamePlayEventUDP() in your PlayerManager to SendGamePlayEvents.
+
+### New Features:
+- Server Stats : View analytics of an Edge Multiplay instance in a web browser. To view the closest instance's stats, click on the menu button Server Stats under the EdgeMultiplay menu in the Unity Editor.
+- New Ownership Transfer options : TakeOver and RequestOwnership.
+- UpdateRate (Fixed Update or EveryFrame) for EdgeMultiplayObserver.
+- New Example Scenes added (Chat Rooms, OwnershipExamples)
+- New notification callback added OnRoomRemovedFromLobby()
+
+
+## [1.1.0] - 2021-04-01
+
+### Fix & Improvements.
+- Custom Tags (App Dependent Tags) added to Players.
+- Observables ownership transfer, Creating observables at runtime.
+- Added Compatibility with Oculus SDK.
+- OrphanObservable added, Add OrphanObservable Component to GameObjects that don't have an owner at the time of creation (Ex. created in Unity Editor).
+- Example Scenes added (Creating synced objects at runtime, ownership transfer)
+
+
+## [1.0.0] - 2021-02-12
+
+### Fix & Improvements.
+- First release for EdgeMultiplay Unity Client
+- Getting started tutorials added https://www.youtube.com/watch?v=9kMz6Q3g0xQ&list=PLwUZZfaECSv18E5d0ooDR7S8416pImW8W
+- Example Scenes added (ChatExample, PingPongExample, ARPingPongExample)
